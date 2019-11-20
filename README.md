@@ -34,7 +34,7 @@ HR/H (Home runs per hit) – HmRun / Hits
 The R-square is increased into 0.822607, which means that adding new variables are helpful. * If we have other variables, we can use the other important variables such as OPS (On-base plus slugging) – on-base percentage plus slugging average, SLG (slugging average) – TB (Total bases) / AB (At Bat), injury(health), etc.
 
 4.6 Data Normalization
-Different values in the dataset have a variety of ranges. Some variables range from 2~23 while other attributes range from 0~8474. Therefore, we normalize the data by using auto data preparation. In fact, most of the models request the data scaling. The input variables should be logic in terms of units and scaling.
+Different values in the dataset have a variety of ranges. Therefore, we normalize the data by using auto data preparation. In fact, most of the models request the data scaling. The input variables should be logic in terms of units and scaling.
 * Dropping the insignificant variables
 Too many variables can make the model overfitting. Overfitting can happen when data that over-presents the target event, and therefore it will produce a poor performing model when using real-world data as input.
 
