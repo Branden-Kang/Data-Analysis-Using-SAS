@@ -56,7 +56,8 @@ Ridge regression is used when a multicollinearity is identified after standardiz
 These methods are from the eigenvalues of the correlation matrix and the scree plot. Through checking these plots, it is needed to decide the number of factors to build our model. Any factor with an eigenvalue higher than 1.000 can remain in the model as it explains at least 1 variable’s worth of information. Thus, our model includes 5 factors. And, from Appendix, we can check the output and the r-squared is 0.5636.
 Ridge Regression and PCR is good for predicting the dependent variable but they can’t explain the relationship between the dependent and independent variables.
 If multicollinearity is not resolved properly, it can have a negative impact on the accuracy of your model. Through the above methods, it is important to detect and solve the issue of multicollinearity before fitting the regression model.
-6. Residual Analysis (Model diagnostics)
+
+## 6. Residual Analysis (Model diagnostics)
 Before log transform, after log transform, and after adding new variables, residual analysis is implemented to check the model adequacy. Now, this part is for the final model. It is important to examine influence and fit diagnostics to see whether the model might be unfittingly influenced by a few outliers and whether the data support the assumptions that underset the linear regression.
 
 There are five steps:
@@ -79,10 +80,10 @@ implemented, %NORMTEST(VAR, DATA), to facilitate this task. We will need to (1) 
 Note that I have suppressed the printout and added an extra OUTPUT statement. OUT= specifies the name of dataset and R= specifies the name of raw residual; RSTUDENT= specifies the name of Rstudent residual residual; STUDENT= specifies the name of studentized residual; and PRESS= specifies the name of PRESS residual. (3) Call/Run the MACRO on EI in dataset fit.
 %NORMTEST(EI, FIT)
 
-7. Model selection
+## 7. Model selection
 Normally, we do regression analyses using only continuous variables. However, our dataset includes categorical predictors in a regression analysis. So, PROG REG is not appropriate in this case because there are categorical variables in this dataset. it is need to use PROC GLM which handle the numerical regressors as well as categorical ones.
 There are large numbers of candidate predictor variables so Statistical model selection is needed to find out which ones are important to predict the results accurately. Model selection is to estimate the performance of different models in order to choose the approximate best model. Methods include familiar methods such as forward, backward, and stepwise selection. Also, new methods such as LAR, LASSO are also used.
 
-8. Conclusion (Evaluation)
+## 8. Conclusion (Evaluation)
 The objective of regression analysis is 1) interpretation of regressors against response 2) prediction. Through this project, I attempt to check the relationship between the independent variable and dependent variable and increase the prediction accuracy. First, talk about doings to build the model properly. Because the dataset is small, extreme outlier can distort the prediction. So, deleting the outlier make the prediction accurate. Through domain knowledge, new variables are created and they become the significant variable for the target. And, variable transformation and resolving the multicollinearity also help fit the model.
 When we check the “goodness-of-fit”, R-squared, RMSE, and p-values are considered. The Root Mean Squared Error (RMSE) and R-square are statistics that typically inform the analyst how good the model is in predicting the target. The R-square is a measure of the fit of the model and ranges from 0 to 1.0 with higher values typically indicating a better model. The higher the R-squared values typically indicate a better performing model but sometimes conditions or the data used to train the model over-fit and don’t represent the true value of the prediction power of that particular model. Third, p-value measures how likely the coefficient has no effect on the outcome. If p-value is too high, the variable becomes insignificant. “STEPWISE” has the highest R-Squared (0.8551), adjusted R-Squared (0.8497), and the lowest RMSE (0.14836). So, I have considered this model for prediction.
